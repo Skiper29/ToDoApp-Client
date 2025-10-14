@@ -35,6 +35,6 @@ export const TodoApi = {
 
     // DELETE /api/TodoTask/{id}
     async delete(id: number): Promise<void> {
-        await axiosInstance.delete(`${API_ROUTES.TODO_TASK.BASE}${id}`);
+        await axiosInstance.delete(`${API_ROUTES.TODO_TASK.BASE}/${id}`);
     }
 };

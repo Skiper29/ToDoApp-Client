@@ -25,5 +25,5 @@ export interface UpdateTodoTaskDto extends CreateTodoTaskDto {
 }
 
 export interface UpdateTaskStatusDto {
-    status: TodoTaskStatus;
+    newStatus: TodoTaskStatus;
 }
