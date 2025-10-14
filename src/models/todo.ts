@@ -20,7 +20,7 @@ export interface TodoTaskDto {
     finishedAt: Date | null;
 }
 
-export interface UpdateTodoTaskDto extends CreateTodoTaskDto{
+export interface UpdateTodoTaskDto extends CreateTodoTaskDto {
     id: number;
 }
 
