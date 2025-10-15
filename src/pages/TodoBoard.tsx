@@ -64,6 +64,7 @@ const TodoBoard = () => {
                         aria-label="todo tabs"
                         textColor="primary"
                         indicatorColor="primary"
+                        variant="fullWidth"
                     >
                         <Tab label={`All Tasks (${allTasks.length})`}/>
                         <Tab label={`Active Tasks (${activeTasks.length})`}/>
