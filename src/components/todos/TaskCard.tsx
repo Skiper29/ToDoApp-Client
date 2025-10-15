@@ -11,7 +11,7 @@ interface TaskCardProps {
 const TaskCard = ({task}: TaskCardProps) => {
     const formatDate = (date: Date | null | undefined) => {
         if (!date) return null;
-        return format(new Date(date).toLocaleDateString(), 'MMM dd, yyyy HH:mm');
+        return format(new Date(date), 'MMM dd, yyyy HH:mm');
     }
 
     const isOverdue = task.deadline && new Date(task.deadline) < new Date() && task.status !== TodoTaskStatus.Done;
