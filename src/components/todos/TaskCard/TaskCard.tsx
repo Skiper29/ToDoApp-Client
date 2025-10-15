@@ -8,6 +8,7 @@ import * as React from "react";
 import {useState} from "react";
 import TaskFormDialog from "@components/todos/TaskFormDialog/TaskFormDialog.tsx";
 import StatusChangeDialog from "@components/todos/StatusChangeDialog/StatusChangeDialog.tsx";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 interface TaskCardProps {
     task: TodoTaskDto;
@@ -117,6 +118,15 @@ const TaskCard = ({task}: TaskCardProps) => {
                             flexShrink: 0,
                         }}
                     >
+                        {task.status === TodoTaskStatus.Done && task.finishedAt && (
+                            <Box sx={{display: 'flex', alignItems: 'center', gap: 0.5, mb: 0.5}}>
+                                <CheckCircleOutlineIcon sx={{fontSize: 16}} color="success"/>
+                                <Typography variant="caption" color="success.main" sx={{fontWeight: 500}}>
+                                    Finished: {formatDate(task.finishedAt)}
+                                </Typography>
+                            </Box>
+                        )}
+
                         {task.deadline && (
                             <Box sx={{display: 'flex', alignItems: 'center', gap: 0.5}}>
                                 <AccessTimeIcon sx={{fontSize: 16}} color={isOverdue ? 'error' : 'action'}/>

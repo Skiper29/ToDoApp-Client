@@ -50,7 +50,7 @@ const TaskList = ({tasks, loading}: TaskListProps) => {
     return (
         <Grid container spacing={2}>
             {tasks.map((task) => (
-                <Grid key={task.id} size={{xs: 12, sm: 6, md: 4, lg: 3}}>
+                <Grid key={task.id} size={{xs: 12, sm: 6, md: 4, lg: 4}}>
                     <TaskCard task={task}/>
                 </Grid>
             ))}
