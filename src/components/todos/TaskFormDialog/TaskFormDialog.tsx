@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
 import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns';
 import {DateTimePicker} from "@mui/x-date-pickers";
+import {uk} from 'date-fns/locale';
 
 interface TaskFormDialogProps {
     open: boolean;
@@ -147,7 +148,7 @@ export const TaskFormDialog = ({open, onClose, task, mode}: TaskFormDialogProps)
                         disabled={isSubmitting}
                     />
 
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={uk}>
                         <DateTimePicker
                             label="Deadline"
                             value={formData.deadline}
