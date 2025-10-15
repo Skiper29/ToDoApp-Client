@@ -7,6 +7,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import * as React from "react";
 import {useState} from "react";
 import TaskFormDialog from "@components/todos/TaskFormDialog/TaskFormDialog.tsx";
+import StatusChangeDialog from "@components/todos/StatusChangeDialog/StatusChangeDialog.tsx";
 
 interface TaskCardProps {
     task: TodoTaskDto;
@@ -14,6 +15,7 @@ interface TaskCardProps {
 
 const TaskCard = ({task}: TaskCardProps) => {
     const [editDialogOpen, setEditDialogOpen] = useState(false);
+    const [statusDialogOpen, setStatusDialogOpen] = useState(false);
 
     const formatDate = (date: Date | string | null | undefined) => {
         if (!date) return null;
@@ -29,6 +31,10 @@ const TaskCard = ({task}: TaskCardProps) => {
         e.stopPropagation();
         setEditDialogOpen(true);
     };
+
+    const handleStatusClick = () => {
+        setStatusDialogOpen(true);
+    }
 
     return (
         <>
@@ -84,7 +90,7 @@ const TaskCard = ({task}: TaskCardProps) => {
                             >
                                 {task.title}
                             </Typography>
-                            <TaskStatusChip status={task.status}/>
+                            <TaskStatusChip status={task.status} onClick={handleStatusClick}/>
                         </Box>
 
                         {task.content && (
@@ -143,6 +149,12 @@ const TaskCard = ({task}: TaskCardProps) => {
                 task={task}
                 mode="edit"
             />
+
+            <StatusChangeDialog
+                open={statusDialogOpen}
+                onClose={() => setStatusDialogOpen(false)}
+                taskId={task.id}
+                currentStatus={task.status}/>
         </>
     );
 };
