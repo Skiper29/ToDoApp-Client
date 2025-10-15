@@ -3,12 +3,14 @@ import {format} from "date-fns";
 import {type TodoTaskDto, TodoTaskStatus} from "@models/todo.ts";
 import TaskStatusChip from "@components/todos/TaskStatusChip/TaskStatusChip.tsx";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import * as React from "react";
 import {useState} from "react";
 import TaskFormDialog from "@components/todos/TaskFormDialog/TaskFormDialog.tsx";
 import StatusChangeDialog from "@components/todos/StatusChangeDialog/StatusChangeDialog.tsx";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import DeleteConfirmationDialog from "@components/todos/DeleteConfirmationDialog/DeleteConfirmationDialog.tsx";
 
 interface TaskCardProps {
     task: TodoTaskDto;
@@ -17,6 +19,7 @@ interface TaskCardProps {
 const TaskCard = ({task}: TaskCardProps) => {
     const [editDialogOpen, setEditDialogOpen] = useState(false);
     const [statusDialogOpen, setStatusDialogOpen] = useState(false);
+    const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
     const formatDate = (date: Date | string | null | undefined) => {
         if (!date) return null;
@@ -32,6 +35,11 @@ const TaskCard = ({task}: TaskCardProps) => {
         e.stopPropagation();
         setEditDialogOpen(true);
     };
+
+    const handleDeleteClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setDeleteDialogOpen(true);
+    }
 
     const handleStatusClick = () => {
         setStatusDialogOpen(true);
@@ -150,6 +158,15 @@ const TaskCard = ({task}: TaskCardProps) => {
                         <EditIcon fontSize="small"/>
                     </IconButton>
 
+                    <IconButton
+                        size="small"
+                        aria-label="delete task"
+                        color="error"
+                        onClick={handleDeleteClick}
+                    >
+                        <DeleteIcon fontSize="small"/>
+                    </IconButton>
+
                 </CardActions>
             </Card>
 
@@ -165,6 +182,12 @@ const TaskCard = ({task}: TaskCardProps) => {
                 onClose={() => setStatusDialogOpen(false)}
                 taskId={task.id}
                 currentStatus={task.status}/>
+
+            <DeleteConfirmationDialog
+                open={deleteDialogOpen}
+                onClose={() => setDeleteDialogOpen(false)}
+                taskId={task.id}
+                taskTitle={task.title}/>
         </>
     );
 };
