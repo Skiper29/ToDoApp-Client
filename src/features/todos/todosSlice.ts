@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {TodoApi} from '../../api/todoApi';
-import type {CreateTodoTaskDto, TodoTaskDto, UpdateTaskStatusDto, UpdateTodoTaskDto} from '../../models/todo';
+import {TodoApi} from '@api/todoApi.ts';
+import type {CreateTodoTaskDto, TodoTaskDto, UpdateTaskStatusDto, UpdateTodoTaskDto} from '@models/todo';
 
 interface TodosState {
     tasks: TodoTaskDto[];

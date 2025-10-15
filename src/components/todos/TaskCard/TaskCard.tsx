@@ -1,7 +1,7 @@
 import {Box, Card, CardContent, Typography} from '@mui/material';
 import {format} from "date-fns";
-import {type TodoTaskDto, TodoTaskStatus} from "../../../models/todo.ts";
-import TaskStatusChip from "../../common/TaskStatusChip.tsx";
+import {type TodoTaskDto, TodoTaskStatus} from "@models/todo.ts";
+import TaskStatusChip from "@components/common/TaskStatusChip.tsx";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 interface TaskCardProps {

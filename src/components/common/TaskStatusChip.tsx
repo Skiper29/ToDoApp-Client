@@ -1,7 +1,7 @@
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import {TodoTaskStatus} from "../../models/todo.ts";
+import {TodoTaskStatus} from "@models/todo.ts";
 import {Chip} from "@mui/material";
 
 interface TaskStatusChipProps {

@@ -1,6 +1,6 @@
-import {axiosInstance} from "./axios.ts";
-import type {CreateTodoTaskDto, TodoTaskDto, UpdateTaskStatusDto, UpdateTodoTaskDto} from "../models/todo";
-import {API_ROUTES} from "../constants/api-routes.constants.ts";
+import {axiosInstance} from "@api/axios.ts";
+import type {CreateTodoTaskDto, TodoTaskDto, UpdateTaskStatusDto, UpdateTodoTaskDto} from "@models/todo";
+import {API_ROUTES} from "@constants/api-routes.constants.ts";
 
 export const TodoApi = {
     // GET /api/TodoTask

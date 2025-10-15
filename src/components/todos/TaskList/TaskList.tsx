@@ -1,7 +1,7 @@
 import {Box, CircularProgress, Grid, Typography} from "@mui/material";
 import type {TodoTaskDto} from "../../../models/todo.ts";
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import TaskCard from "../TaskCard/TaskCard.tsx";
+import TaskCard from "@components/todos/TaskCard/TaskCard.tsx";
 
 interface TaskListProps {
     tasks: TodoTaskDto[];

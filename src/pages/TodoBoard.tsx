@@ -1,11 +1,11 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {Box, Container, Tab, Tabs,} from '@mui/material';
-import {useAppDispatch, useAppSelector} from "../hooks/hooks.ts";
-import {fetchTodos} from "../features/todos/todosSlice.ts";
-import {TodoTaskStatus} from "../models/todo.ts";
-import PageHeader from "../components/common/PageHeader.tsx";
-import TaskList from "../components/todos/TaskList/TaskList.tsx";
+import {useAppDispatch, useAppSelector} from "@hooks/hooks.ts";
+import {fetchTodos} from "@features/todos/todosSlice.ts";
+import {TodoTaskStatus} from "@models/todo.ts";
+import PageHeader from "@components/common/PageHeader.tsx";
+import TaskList from "@components/todos/TaskList/TaskList.tsx";
 
 
 interface TabPanelProps {
