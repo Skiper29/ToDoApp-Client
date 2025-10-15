@@ -5,7 +5,7 @@ import {useAppDispatch, useAppSelector} from "../hooks/hooks.ts";
 import {fetchTodos} from "../features/todos/todosSlice.ts";
 import {TodoTaskStatus} from "../models/todo.ts";
 import PageHeader from "../components/common/PageHeader.tsx";
-import TaskList from "../components/todos/TaskList.tsx";
+import TaskList from "../components/todos/TaskList/TaskList.tsx";
 
 
 interface TabPanelProps {
