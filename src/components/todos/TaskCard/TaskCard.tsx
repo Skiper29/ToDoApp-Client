@@ -11,6 +11,7 @@ import TaskFormDialog from "@components/todos/TaskFormDialog/TaskFormDialog.tsx"
 import StatusChangeDialog from "@components/todos/StatusChangeDialog/StatusChangeDialog.tsx";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import DeleteConfirmationDialog from "@components/todos/DeleteConfirmationDialog/DeleteConfirmationDialog.tsx";
+import TaskDetailDialog from "@components/todos/TaskDetailDialog/TaskDetailDialog.tsx";
 
 interface TaskCardProps {
     task: TodoTaskDto;
@@ -20,6 +21,7 @@ const TaskCard = ({task}: TaskCardProps) => {
     const [editDialogOpen, setEditDialogOpen] = useState(false);
     const [statusDialogOpen, setStatusDialogOpen] = useState(false);
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+    const [isDetailDialogOpen, setDetailDialogOpen] = useState(false);
 
     const formatDate = (date: Date | string | null | undefined) => {
         if (!date) return null;
@@ -41,6 +43,13 @@ const TaskCard = ({task}: TaskCardProps) => {
         setDeleteDialogOpen(true);
     }
 
+    const handleCardClick = (e: React.MouseEvent) => {
+        if ((e.target as HTMLElement).closest('.MuiIconButton-root')) {
+            return;
+        }
+        setDetailDialogOpen(true);
+    };
+
     const handleStatusClick = () => {
         setStatusDialogOpen(true);
     }
@@ -58,6 +67,7 @@ const TaskCard = ({task}: TaskCardProps) => {
                         boxShadow: 6,
                     },
                 }}
+                onClick={handleCardClick}
             >
                 <CardContent
                     sx={{
@@ -188,6 +198,24 @@ const TaskCard = ({task}: TaskCardProps) => {
                 onClose={() => setDeleteDialogOpen(false)}
                 taskId={task.id}
                 taskTitle={task.title}/>
+
+            <TaskDetailDialog
+                open={isDetailDialogOpen}
+                onClose={() => setDetailDialogOpen(false)}
+                task={task}
+                onEdit={() => {
+                    setDetailDialogOpen(false);
+                    setEditDialogOpen(true);
+                }}
+                onDelete={() => {
+                    setDetailDialogOpen(false);
+                    setDeleteDialogOpen(true);
+                }}
+                onStatusChange={() => {
+                    setDetailDialogOpen(false);
+                    setStatusDialogOpen(true);
+                }}/>
+
         </>
     );
 };
