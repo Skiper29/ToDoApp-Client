@@ -83,9 +83,8 @@ const TaskCard = ({task}: TaskCardProps) => {
                                 overflow: 'hidden',
                                 textOverflow: 'ellipsis',
                                 display: '-webkit-box',
-                                WebkitLineClamp: 6,
+                                WebkitMaskImage: 'linear-gradient(180deg, #000 80%, transparent)',
                                 WebkitBoxOrient: 'vertical',
-                                flexShrink: 0,
                             }}
                         >
                             {task.content}
