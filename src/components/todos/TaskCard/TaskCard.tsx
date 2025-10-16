@@ -44,7 +44,8 @@ const TaskCard = ({task}: TaskCardProps) => {
     }
 
     const handleCardClick = (e: React.MouseEvent) => {
-        if ((e.target as HTMLElement).closest('.MuiIconButton-root')) {
+        if ((e.target as HTMLElement).closest('.MuiIconButton-root') ||
+            (e.target as HTMLElement).closest('.MuiChip-root')) {
             return;
         }
         setDetailDialogOpen(true);
